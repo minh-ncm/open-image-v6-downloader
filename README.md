@@ -9,3 +9,6 @@ only important values (to me, at least) to lower storage.
 download_image.py allow you to specify the amount of images you want to download
 and where put the dataset and its annotations after the download<br>
 run `python download_images.py -h` for help
+## TODO
+- create script for downloading only a certain type of class
+- create script for downloading test dataset
