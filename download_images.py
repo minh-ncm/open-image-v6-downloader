@@ -8,13 +8,19 @@ import os
 
 try:
     opts, args = getopt.getopt(sys.argv[1:],
-                               shortopts='ho:a:',
-                               longopts=['help=', 'out-path=', 'amount='])
+                               shortopts='ho:a:i:',
+                               longopts=[
+                                   'help=',
+                                   'out-path=',
+                                   'amount=',
+                                   'in-path='
+                               ])
 except getopt.GetoptError as e:
     print('use -h or --help for usage info')
 
 
 OUT_DIR = ''
+IN_DIR = ''
 AMOUNT = 50
 
 for opt, arg in opts:
@@ -22,15 +28,18 @@ for opt, arg in opts:
         print('usage: python download_images.py [options]')
         print('options:')
         print('-o, --out-path\tdirectory where download images will be save into. Default is in working directory')
+        print('-i, --in-path\tdirectory where the dataset is placed. Default is in working directory.')
         print('-a, --amount\tamount of image will be download, use `all` to download all images. Default is `50`')
         sys.exit()
     elif opt in ['-o', '--output']:
         OUT_DIR = arg
     elif opt in ['-a', '--amount']:
         AMOUNT = arg
+    elif opt in ['-i', '--in-path']:
+        IN_DIR = arg
 
-IMG_INFO = 'csv/train/simpler-train-images-boxable-with-rotation.csv'
-ANNO_INFO = 'csv/train/simpler-oidv6-train-annotations-bbox.csv'
+IMG_INFO = os.path.join(IN_DIR, 'csv/train/simpler-train-images-boxable-with-rotation.csv')
+ANNO_INFO = os.path.join(IN_DIR, 'csv/train/simpler-oidv6-train-annotations-bbox.csv')
 image_urls = pd.read_csv(IMG_INFO)
 image_annotations = pd.read_csv(ANNO_INFO)
 if AMOUNT == 'all':
