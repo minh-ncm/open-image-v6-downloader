@@ -1,22 +1,31 @@
-# open-image-v6
+# About
+This module main purpose is for downloading google open image v6 dataset. <br>
+But use this [dataset](https://www.kaggle.com/tarantula3/google-open-image-v6) 
+which is a smaller dataset of the [original](https://opensource.google/projects/open-images-dataset) <br>
+The smaller one contain image's urls, label names, human-verified annotations 
+in csv files. <br>
 
-## About
-The dataset is original from google open image v6 dataset. <br>
-You can find more information about the full dataset 
-[here](https://opensource.google/projects/open-images-dataset) <br>
-But this module use this [dataset](https://www.kaggle.com/tarantula3/google-open-image-v6) 
-which is created from the original dataset and only important values(to me, 
-at least) to lower storage.
+# Usage
+First you need to have the smaller dataset downloaded. (or you can add the 
+dataset to your notebook if you work on kaggle.) <br>
+run `python main.py -h` for help
 
-## Usage
-First you need to have [this](https://www.kaggle.com/tarantula3/google-open-image-v6) 
-downloaded. (or you can add the dataset to your notebook if you work on kaggle.)
+Example:
+- Change downloaded dataset output directory: <br>
+`python main.py -o C:\\users\\output`
+- Select where the input dataset is downloaded: <br> 
+`python main.py -i C:\\user\\download`
 
-### Download some images and all its annotations
-download_image.py allow you to specify the amount of images you want to download
-and where put the dataset and its annotations after the download<br>
-run `python download_images.py -h` for help
+## Download some images and all its annotations
+Example: <br> 
+- Download 10 images: <br>
+`pyhon main.py -a 10` <br>
 
-## TODO
-- create script for downloading only a certain type of class
-- create script for downloading test dataset
+## Download images and create annotations by classes
+Example: <br>
+- Download training dataset for __Apple__ and __Polar bear__: <br>
+`python main.py -c polar-bear apple`
+
+# TODO
+- Fix some minor issues in my dataset.
+- create script for downloading test dataset.
