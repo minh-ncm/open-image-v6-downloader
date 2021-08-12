@@ -39,7 +39,6 @@ if __name__ == "__main__":
         elif opt in ['-o', '--output']:
             out_dir = arg
         elif opt in ['-a', '--amount']:
-            print('true')
             amount = arg
         elif opt in ['-i', '--in-path']:
             in_dir = arg

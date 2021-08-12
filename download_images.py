@@ -1,10 +1,10 @@
-import pandas as pd
-# from progress.bar import Bar
-
-import sys
-import getopt
-import requests
 import os
+import requests
+
+import pandas as pd
+from PIL import Image
+
+from utils import delete_corrupted_images
 
 
 def download_images(in_dir='../input/google-open-image-v6', out_dir='', amount=50):
@@ -49,6 +49,10 @@ def download_images(in_dir='../input/google-open-image-v6', out_dir='', amount=5
         file = open(file_name, 'wb')
         file.write(response.content)
         file.close()
+
+        # Delete image if corrupted
+        if delete_corrupted_images(file_name):
+            continue
 
         # Create annotations
         short_anno_df = pd.DataFrame()
@@ -115,6 +119,10 @@ def download_by_classes(classes, in_dir='', out_dir=''):
             file = open(img_file, 'wb')
             file.write(response.content)
             file.close()
+
+            # Delete image if corrupted
+            if delete_corrupted_images(img_file):
+                continue
 
             image_anno = annotations[annotations['ImageID'] == im_id]
             image_anno.columns = annotations_df.columns
