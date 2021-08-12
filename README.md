@@ -27,5 +27,5 @@ Example: <br>
 `python main.py -c polar-bear apple`
 
 # TODO
-- Fix some minor issues in my dataset.
+- add option to download an amount of sample for download_by_classes function
 - create script for downloading test dataset.
