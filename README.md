@@ -1,9 +1,12 @@
 # About
-This module main purpose is for downloading google open image v6 dataset. <br>
-But use this [dataset](https://www.kaggle.com/tarantula3/google-open-image-v6) 
-which is a smaller dataset of the [original](https://opensource.google/projects/open-images-dataset). <br>
-The smaller one contain image's urls, label names, human-verified annotations 
+This repo main purpose is for downloading dataset for object detection problem 
+from google open image v6 dataset. <br>
+The repo use this [files](https://www.kaggle.com/tarantula3/google-open-image-v6) 
+which is a simpler csv files of the [original](https://opensource.google/projects/open-images-dataset). <br>
+The smaller one contain image's urls, label names, human-verified annotations. 
 in csv files. <br>
+After download each image's annotations file will contain these: 
+<i>ImageID, LabelName, XMin, XMax, YMin, YMax</i><br>
 
 # Usage
 First you need to have the smaller dataset downloaded. (or you can add the 
@@ -22,10 +25,12 @@ Example: <br>
 `python main.py -a 10` <br>
 
 ## Download images and create annotations by classes
+<b>NOTE:</b> <i>--amount</i> not yet support for this feature.<br>
 Example: <br>
 - Download training dataset for __Apple__ and __Polar bear__: <br>
 `python main.py -c polar-bear apple`
 
 # TODO
-- Fix some minor issues in my dataset.
+- add to use --amount in download_by_classes function.
 - create script for downloading test dataset.
+- improve speed.
