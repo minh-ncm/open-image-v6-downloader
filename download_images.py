@@ -2,12 +2,11 @@ import os
 import requests
 
 import pandas as pd
-from PIL import Image
 
 from utils import delete_corrupted_images
 
 
-def download_images(in_dir='../input/google-open-image-v6', out_dir='', amount=50):
+def download_images(in_dir='../input/google-open-image-v6', out_dir='', amount=20):
     """
     Download images and create its annotations from csv files.
     :param out_dir: Directory where to put downloaded data

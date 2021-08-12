@@ -1,5 +1,4 @@
 import pandas as pd
-
 images_info = 'train-images-boxable-with-rotation.csv'
 print('Loading images info')
 df = pd.read_csv(images_info)
