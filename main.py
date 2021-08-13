@@ -50,8 +50,8 @@ if __name__ == "__main__":
                     break
             is_by_class = True
 
-    # print(out_dir, in_dir, amount, classes)
     if is_by_class:
+        # Process classes name format
         result = []
         for class_name in classes:
             class_name = class_name[0].upper() + class_name[1:].lower()
